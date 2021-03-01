@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 	mpireqs = (MPI_Request *)malloc(mx * sizeof(MPI_Request));
   MPI_Status mpistat;
 
-	if(argc < 3){
+	if(argc < 4){
 		cout << "Invalid argument count" << endl;
 		MPI_Finalize();
 		return 0;
@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 	M = N;
 	D = N;
 	nz = atoi(argv[2]);
-	nzF = nz;
+	nzF = atoi(argv[3]);
 
 	int n = N/tNum + 1;
 	int offset = tid*n;
